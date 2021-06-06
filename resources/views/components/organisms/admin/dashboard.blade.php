@@ -1,8 +1,11 @@
 <div>
     <x-molecules.admin.header />
-    <x-molecules.admin.menu />
-    <main>
-        {{ $slot }}
-    </main>
+    <div class="flex">
+        <x-molecules.admin.menu />
+        <x-molecules.admin.filter />
+        <main>
+            {{ $slot }}
+        </main>
+    </div>
     <x-molecules.admin.footer />
 </div>

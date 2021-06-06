@@ -1,8 +1,8 @@
 <div>
-    <div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
-      <div @click.away="open = false" :class="{'md:w-64': open, 'md:flex md:w-12': !open}" class="flex flex-col w-full text-gray-70 text-gray-200 bg-gray-800 flex-shrink-0" x-data="{ open: false }">
+    <div class="md:flex flex-col md:flex-row md:min-h-screen w-full border-r border-gray-900">
+      <div class="flex flex-col md:w-52 w-full text-gray-70 text-gray-800 bg-gray-300 flex-shrink-0" x-data="{ open: false }">
         <div class="flex-shrink-0 px-2 py-4 flex flex-row items-center justify-between">
-          <a href="#" :class="{'block': open, 'md:hidden': !open}" class="text-lg font-semibold tracking-widest uppercase rounded-lg text-white focus:outline-none focus:shadow-outline">{{ env('APP_NAME') }}</a>
+          <a href="#" :class="{'block': open, 'md:hidden': !open}" class="text-lg font-semibold tracking-widest uppercase rounded-lg text-gray-900 focus:outline-none focus:shadow-outline">Filters</a>
           <button class="rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
             <i class="fi-xnsuxx-three-bars-solid"></i>
           </button>
