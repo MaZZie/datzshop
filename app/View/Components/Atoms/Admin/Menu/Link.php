@@ -2,11 +2,13 @@
 
 namespace App\View\Components\Atoms\Admin\Menu;
 
+use App\Http\Livewire\Traits\Menu;
 use Illuminate\View\Component;
 
 class Link extends Component
 {
-
+    use Menu;
+    
     public $name;
     public $route;
     public $icon;

@@ -2,12 +2,9 @@
     <div class="md:flex flex-col md:flex-row md:min-h-screen w-full border-r border-gray-900">
       <div class="flex flex-col md:w-52 w-full text-gray-70 text-gray-800 bg-gray-300 flex-shrink-0" x-data="{ open: false }">
         <div class="flex-shrink-0 px-2 py-4 flex flex-row items-center justify-between">
-          <a href="#" :class="{'block': open, 'md:hidden': !open}" class="text-lg font-semibold tracking-widest uppercase rounded-lg text-gray-900 focus:outline-none focus:shadow-outline">Filters</a>
-          <button class="rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
-            <i class="fi-xnsuxx-three-bars-solid"></i>
-          </button>
+          <a href="#" class="text-lg font-semibold tracking-widest uppercase rounded-lg text-gray-900 focus:outline-none focus:shadow-outline">Filters</a>
         </div>
-        <nav :class="{'block': open, 'hidden md-block md:items-center': !open}" class="flex-grow md:block px-3 pb-4 md:pb-0 md:overflow-y-auto overflow-hidden">
+        <nav class="flex-grow md:block px-3 pb-4 md:pb-0 md:overflow-y-auto overflow-hidden">
             <x-atoms.admin.menu.link name="Dashboard" :route="route('admin.dashboard')" icon="xnluxl-home"/>
           {{-- <div @click.away="open = false" class="relative" x-data="{ open: false }">
             <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left rounded-lg bg-transparent focus:text-white hover:text-white focus:bg-gray-600 hover:bg-gray-600 md:block focus:outline-none focus:shadow-outline">
