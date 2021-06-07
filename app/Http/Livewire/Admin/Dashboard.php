@@ -2,12 +2,12 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Http\Livewire\Traits\Menu;
+use App\Http\Livewire\Traits\BasicTrait;
 use Livewire\Component;
 
 class Dashboard extends Component
 {
-    use Menu;
+    use BasicTrait;
     protected $listeners = ['refreshDing' => '$refresh'];
 
     public function render()
