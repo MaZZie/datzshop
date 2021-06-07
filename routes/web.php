@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Admin\Dashboard;
+use App\Http\Livewire\Admin\Products\ProductIndex;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth:sanctum', 'verified']], function() {    
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth:sanctum', 'verified']], function() {
     Route::get('/', Dashboard::class)->name('dashboard');
+    Route::get('/products', ProductIndex::class)->name('products.index');
 });
 
 Route::get('/', function () {

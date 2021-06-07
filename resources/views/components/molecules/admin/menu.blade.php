@@ -1,14 +1,15 @@
 <div>
     <div class="md:flex flex-col md:flex-row md:min-h-screen w-full" x-data="{ menuOpen: @entangle('menuOpen') }">
-      <div :class="{'md:w-52': menuOpen, 'md:flex md:w-12': !menuOpen}" class="flex flex-col w-full text-gray-70 text-gray-200 bg-gray-800 flex-shrink-0">
+      <div :class="{'md:w-52': menuOpen, 'md:flex md:w-10': !menuOpen}" class="flex flex-col w-full text-gray-70 text-gray-200 bg-gray-800 flex-shrink-0">
         <div class="flex-shrink-0 px-2 py-4 flex flex-row items-center justify-between">
-          <a href="#" :class="{'block': menuOpen, 'md:hidden': !menuOpen}" class="text-lg font-semibold tracking-widest uppercase rounded-lg text-green-600 focus:outline-none focus:shadow-outline">{{ env('APP_NAME') }}</a>
-          <button class="rounded-lg focus:outline-none focus:shadow-outline" wire:click="toggleMenu">
+          <a href="#" :class="{'block': menuOpen, 'md:hidden': !menuOpen}" class="text-lg font-bold tracking-widest uppercase rounded-lg text-green-600 focus:outline-none focus:shadow-outline">{{ env('APP_NAME') }}</a>
+          <button class="rounded-lg text-xs focus:outline-none focus:shadow-outline" wire:click="toggleMenu">
             <i wire:ignore class="fi-xnsuxx-three-bars-solid"></i>
           </button>
         </div>
-        <nav :class="{'block': menuOpen, 'hidden md-block md:items-center': !menuOpen}" class="flex-grow md:block px-3 pb-4 md:pb-0 md:overflow-y-auto overflow-hidden">
+        <nav :class="{'block': menuOpen, 'hidden md-block': !menuOpen}" class="flex-grow md:block pb-4 md:pb-0 md:overflow-y-auto overflow-hidden">
             <x-atoms.admin.menu.link name="Dashboard" :route="route('admin.dashboard')" icon="xnluxl-home"/>
+            <x-atoms.admin.menu.link name="Products" :route="route('admin.products.index')" icon="xnluxl-gift"/>
           {{-- <div @click.away="menuOpen = false" class="relative" x-data="{ menuOpen: false }">
             <button @click="menuOpen = !menuOpen" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left rounded-lg bg-transparent focus:text-white hover:text-white focus:bg-gray-600 hover:bg-gray-600 md:block focus:outline-none focus:shadow-outline">
               <span>Dropdown</span>
