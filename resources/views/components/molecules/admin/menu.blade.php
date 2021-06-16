@@ -1,13 +1,13 @@
 <div>
     <div class="md:flex flex-col md:flex-row md:min-h-screen w-full" x-data="{ menuOpen: @entangle('menuOpen') }">
-      <div :class="{'md:w-52': menuOpen, 'md:flex md:w-10': !menuOpen}" class="flex flex-col w-full text-gray-70 text-gray-200 bg-gray-800 flex-shrink-0">
-        <div class="flex-shrink-0 px-2 py-4 flex flex-row items-center justify-between">
+      <div :class="{'md:w-44': menuOpen, 'md:flex md:w-10': !menuOpen}" class="flex flex-col w-full text-gray-70 text-gray-200 bg-gray-800 flex-shrink-0">
+        <div :class="{'justify-between': menuOpen, 'justify-center': !menuOpen}" class="flex-shrink-0 px-2 py-4 flex flex-row items-center">
           <a href="#" :class="{'block': menuOpen, 'md:hidden': !menuOpen}" class="text-lg font-bold tracking-widest uppercase rounded-lg text-green-600 focus:outline-none focus:shadow-outline">{{ env('APP_NAME') }}</a>
           <button class="rounded-lg text-xs focus:outline-none focus:shadow-outline" wire:click="toggleMenu">
             <i wire:ignore class="fi-xnsuxx-three-bars-solid"></i>
           </button>
         </div>
-        <nav :class="{'block': menuOpen, 'hidden md-block': !menuOpen}" class="flex-grow md:block pb-4 md:pb-0 md:overflow-y-auto overflow-hidden">
+        <nav :class="{'block': menuOpen, 'hidden md:block': !menuOpen}" class="flex-grow pb-4 md:pb-0 md:overflow-y-auto overflow-hidden">
             <x-atoms.admin.menu.link name="Dashboard" :route="route('admin.dashboard')" icon="xnluxl-home"/>
             <x-atoms.admin.menu.link name="Products" :route="route('admin.products.index')" icon="xnluxl-gift"/>
           {{-- <div @click.away="menuOpen = false" class="relative" x-data="{ menuOpen: false }">

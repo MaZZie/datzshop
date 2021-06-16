@@ -7,7 +7,7 @@
         
             <div class="text-lg">Datzmin</div>
             <div class="text-xl mx-1">|</div>
-            <div class="text-sm">Spel en Meer</div>
+            <div class="text-sm">Shop</div>
         </a>
         <button class="rounded-lg md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
             <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
