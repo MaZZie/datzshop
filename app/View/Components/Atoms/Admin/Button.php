@@ -7,16 +7,19 @@ use Illuminate\View\Component;
 class Button extends Component
 {
     public $btnType;
+    public $clickAction;
     /**
      * Create a new component instance.
      *
      * @return void
      */
     public function __construct(
-        $btnType
+        $btnType,
+        $clickAction
         )
     {
         $this->btnType = $btnType;
+        $this->clickAction = $clickAction;
     }
 
     /**

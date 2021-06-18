@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Base\Product as BaseProduct;
+use App\Models\Base\Variation as BaseVariation;
 
-class Product extends BaseProduct
+class Variation extends BaseVariation
 {
 	protected $fillable = [
-		'product_type_id',
+		'product_id',
 		'name',
 		'slug',
 		'price',

@@ -11,7 +11,7 @@ trait InteractWithModalTrait
 
 	protected function closeModal()
 	{
-		$this->emitTo('components.modal', 'closeModal');
+		$this->emitTo('components.modal-component', 'closeModal');
 		$this->closeDeleteModal();
 	}
 

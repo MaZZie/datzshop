@@ -19,7 +19,6 @@ class ProductIndex extends Component
     public function render()
     {
         $this->products = Product::all();
-        // return view('livewire.components.modal-component');
         return view('livewire.admin.products.product-index');
     }
 

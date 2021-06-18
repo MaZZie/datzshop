@@ -20,7 +20,6 @@ class ModalComponent extends Component
 
     public function open(string $type, array $params = [], ?string $modalSize = null)
     {
-        dd("Welcome to the open modal");
         $this->isOpen = true;
         $this->type = $type;
         $this->params = $params;
