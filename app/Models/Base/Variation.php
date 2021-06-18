@@ -6,19 +6,18 @@
 
 namespace App\Models\Base;
 
-use App\Models\Option;
-use App\Models\ProductType;
-use App\Models\Variation;
+use App\Models\OptionValue;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Product
+ * Class Variation
  * 
  * @property int $id
- * @property int $product_type_id
+ * @property int $product_id
  * @property string $name
  * @property string $slug
  * @property float $price
@@ -30,38 +29,32 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
  * 
- * @property ProductType $product_type
- * @property Collection|Option[] $options
- * @property Collection|Variation[] $variations
+ * @property Product $product
+ * @property Collection|OptionValue[] $option_values
  *
  * @package App\Models\Base
  */
-class Product extends Model
+class Variation extends Model
 {
 	use SoftDeletes;
-	protected $table = 'products';
+	protected $table = 'variations';
 
 	protected $casts = [
-		'product_type_id' => 'int',
+		'product_id' => 'int',
 		'price' => 'float',
 		'has_stock' => 'bool',
 		'stock' => 'float'
 	];
 
-	public function product_type()
+	public function product()
 	{
-		return $this->belongsTo(ProductType::class);
+		return $this->belongsTo(Product::class);
 	}
 
-	public function options()
+	public function option_values()
 	{
-		return $this->belongsToMany(Option::class)
+		return $this->belongsToMany(OptionValue::class)
 					->withPivot('id', 'deleted_at')
 					->withTimestamps();
-	}
-
-	public function variations()
-	{
-		return $this->hasMany(Variation::class);
 	}
 }

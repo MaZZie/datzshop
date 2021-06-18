@@ -13,14 +13,39 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('product_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->double('price');
-            $table->double('vat');
-            $table->integer('ean');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+
+        Schema::create('products', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('product_type_id')->constrained();
+            $table->string('name');
+            $table->string('slug');
+            $table->decimal('price');
+            $table->boolean('has_stock');
+            $table->decimal('stock');
+            $table->string('sku');
             $table->longText('description');
             $table->timestamps();
+            $table->softDeletes();
+        });
+
+        Schema::create('variations', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('product_id')->constrained();
+            $table->string('name');
+            $table->string('slug');
+            $table->decimal('price');
+            $table->boolean('has_stock');
+            $table->decimal('stock');
+            $table->string('sku');
+            $table->longText('description');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -32,5 +57,6 @@ class CreateProductsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('products');
+        Schema::dropIfExists('variant');
     }
 }
