@@ -149,7 +149,7 @@ return [
 
     'attributes' => [
         'description' => "omschrijving",
-        'productname' => 'productnaam',
+        'product.name' => 'productnaam',
         'stock' => 'voorraad',
         'price' => 'prijs'
     ],

@@ -1,14 +1,18 @@
 <div class="w-full">
-    <x-atoms.admin.form.input type="text" label="Productnaam" placeholder="Voer een productnaam in" singleCol="true" name="productname" />
-    <x-atoms.admin.form.input type="text" label="slug" placeholder="Voer een slug in" singleCol="true" name="slug" />
+  <div class="grid grid-cols-1 md:grid-cols-6 gap-5 md:gap-8 mt-5 mx-7">
+    <x-atoms.admin.form.toggle label="Actief" name="product.active" singleCol=""/>
+  </div>
+
+  <x-atoms.admin.form.input type="text" label="Productnaam" placeholder="Voer een productnaam in" singleCol="true" name="product.name" />
+  <x-atoms.admin.form.input type="text" label="slug" placeholder="Voer een slug in" singleCol="true" name="product.slug" />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
-        <x-atoms.admin.form.input type="text" label="Voorraad" placeholder="Voer een productnaam in" name="stock" />
-        <x-atoms.admin.form.input type="number" label="prijs" placeholder="Voer een productnaam in" name="price" />
+        <x-atoms.admin.form.input type="text" label="Voorraad" placeholder="Voer de voorraad in" name="product.stock" />
+        <x-atoms.admin.form.input type="number" label="prijs" placeholder="Voer de prijs in" name="product.price" />
     </div>
 
 
-    <x-atoms.admin.form.input type="text" label="omschrijving" placeholder="Voer een productnaam in" singleCol="true" name="description" />
+    <x-atoms.admin.form.input type="text" label="omschrijving" placeholder="Voer een omschrijving in" singleCol="true" name="product.description" />
 
     {{-- <div class="grid grid-cols-1 mt-5 mx-7">
       <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1">Upload Photo</label>
@@ -22,7 +26,6 @@
             </label>
         </div>
     </div> --}}
-
     <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
       <button wire:click="$emitUp('closeModal')" class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancel</button>
       @if($product)
@@ -31,4 +34,5 @@
       <button wire:click="store" class='w-auto bg-green-600 hover:bg-green-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Aanmaken</button>
       @endif
     </div>
+
 </div>

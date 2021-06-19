@@ -30,6 +30,11 @@ class CreateProductsTable extends Migration
             $table->decimal('stock');
             $table->string('sku');
             $table->longText('description');
+            $table->boolean('active')->default(false);
+            $table->timestamp('active_from')->nullable();
+            $table->timestamp('active_to')->nullable();
+            $table->timestamp('preorder_from')->nullable();
+            $table->timestamp('preorder_to')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -44,6 +49,11 @@ class CreateProductsTable extends Migration
             $table->decimal('stock');
             $table->string('sku');
             $table->longText('description');
+            $table->boolean('active')->default(false);
+            $table->timestamp('active_from')->nullable();
+            $table->timestamp('active_to')->nullable();
+            $table->timestamp('preorder_from')->nullable();
+            $table->timestamp('preorder_to')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -18,7 +18,7 @@
             <div class="flex-grow-1 flex-shrink-0 flex-auto">{{ $product->name }}</div>
             <div class="flex-15">WoTC</div>
             <div class="flex-2em flex justify-end">
-                <i wire:ignore class="fi-xwsuxl-ellipsis"></i>
+                <i wire:ignore wire:click='edit({{ $product->id }})' class="fi-xwsuxl-ellipsis"></i>
             </div>
         </div>
     @endforeach

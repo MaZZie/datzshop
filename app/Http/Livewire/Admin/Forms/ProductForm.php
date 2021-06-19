@@ -2,48 +2,72 @@
 
 namespace App\Http\Livewire\Admin\Forms;
 
+use App\Http\Livewire\Traits\BasicTrait;
 use App\Http\Livewire\Traits\InteractWithModalTrait;
 use App\Models\Product;
 use Livewire\Component;
 
 class ProductForm extends Component
 {
+    use BasicTrait;
 
-    public $productname;
-    public $slug;
-    public $stock;
-    public $price;
-    public $description;
     public $product;
-    
+    public $productId;
 
+    protected array $rules = [];
 
-    protected $rules = [
-        'productname' => 'required|min:6',
-        'slug' => 'required|unique:products,slug',
-        'stock' => 'numeric'
-    ];
+    public function rules()
+    {
+         return [
+             'product.name' => 'required|min:6',
+             'product.slug' => 'required|unique:products,slug,' . $this->productId,
+             'product.stock' => 'numeric',
+             'product.price' => '',
+             'product.description' => 'required',
+             'product.active' => '',
+         ];
+    }
 
     public function render()
     {
         return view('livewire.admin.forms.product-form');
     }
 
+    public function mount()
+    {
+        $this->rules = $this->rules();
+        $this->getProduct();
+    }
+
 
     public function store(){
         $this->validate();
-        $this->product = Product::create([
-            'product_type_id' => 1,
-            'name' => $this->productname,
-            'slug' => $this->slug,
-            'price' => $this->price,
-            'has_stock' => true,
-            'stock' => $this->stock,
-            'sku' => 'sku',
-            'description' => $this->description,
-        ]);
+        if($this->productId)
+        {
+            $this->product->save();
+            $this->banner($this->product->name.' is met succes aangepast!');
+        }else{
+            $this->product = Product::create($this->product);
+            $this->banner($this->product->name.' is met succes aangemaakt!');
+        }
 
         $this->emitUp('closeModal');
         $this->emitUp('refreshProducts');
+    }
+
+    public function edit($product)
+    {
+        $this->banner('Successfully edited!');
+    }
+
+    public function getProduct(){
+        
+        if($this->productId)
+        {
+            $this->product = Product::find($this->productId);
+        }
+        $this->product['has_stock'] = true;
+        $this->product['sku'] = 'SKU';
+        $this->product['product_type_id'] = 1;
     }
 }

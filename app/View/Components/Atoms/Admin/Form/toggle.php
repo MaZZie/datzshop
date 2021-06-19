@@ -39,6 +39,6 @@ class Input extends Component
      */
     public function render()
     {
-        return view('components.atoms.admin.form.input');
+        return view('components.atoms.admin.form.toggle');
     }
 }
