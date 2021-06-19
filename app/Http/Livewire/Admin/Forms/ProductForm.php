@@ -14,6 +14,8 @@ class ProductForm extends Component
     public $stock;
     public $price;
     public $description;
+    public $product;
+    
 
 
     protected $rules = [
@@ -30,7 +32,7 @@ class ProductForm extends Component
 
     public function store(){
         $this->validate();
-        Product::create([
+        $this->product = Product::create([
             'product_type_id' => 1,
             'name' => $this->productname,
             'slug' => $this->slug,
@@ -41,9 +43,7 @@ class ProductForm extends Component
             'description' => $this->description,
         ]);
 
-        // $this->closeModal();
+        $this->emitUp('closeModal');
+        $this->emitUp('refreshProducts');
     }
-    public function close(){
-        // $this->closeModal();
-        }
 }

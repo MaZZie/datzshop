@@ -24,7 +24,11 @@
     </div> --}}
 
     <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
-      <button wire:click="close" class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancel</button>
-      <button wire:click="store" class='w-auto bg-purple-500 hover:bg-purple-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Aanmaken</button>
+      <button wire:click="$emitUp('closeModal')" class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancel</button>
+      @if($product)
+      <button wire:click="store" class='w-auto bg-green-600 hover:bg-green-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Opslaan</button>
+      @else
+      <button wire:click="store" class='w-auto bg-green-600 hover:bg-green-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Aanmaken</button>
+      @endif
     </div>
 </div>

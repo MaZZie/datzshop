@@ -1,5 +1,5 @@
 <div>
-    <button wire:click="{{ $clickAction }}" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+    <button wire:click="{{ $clickAction }}" class="w-auto bg-green-600 hover:bg-green-700 rounded-lg shadow-xl font-medium text-sm text-white px-3 py-2">
         {{ $slot }}
     </button>
 </div>
