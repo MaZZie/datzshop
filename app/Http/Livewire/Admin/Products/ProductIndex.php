@@ -17,7 +17,7 @@ class ProductIndex extends Component
     public $products;
 
     protected $listeners = ['refreshProducts' => '$refresh'];
-    
+
     public function render()
     {
         $this->products = Product::all();
@@ -27,11 +27,11 @@ class ProductIndex extends Component
     public function create()
     {
         $this->openModal('admin.forms.product-form');
-    
+
     }
 
-    public function edit(Product $product)
+    public function edit($productId)
     {
-        $this->openModal('admin.forms.product-form', $product);
+        $this->openModal('admin.forms.product-form', ['productId' => $productId]);
     }
 }

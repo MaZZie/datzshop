@@ -20,7 +20,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased bg-gray-200">
-                {{ $slot }}
+        {{ $slot }}
         @stack('modals')
 
         @livewireScripts
