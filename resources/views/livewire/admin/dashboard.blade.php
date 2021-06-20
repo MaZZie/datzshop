@@ -1,4 +1,4 @@
-<div class="flex">
+<div class="md:flex">
 	<x-molecules.admin.menu/>
 	<main>
 		<div class="bg-gray-100"></div>
