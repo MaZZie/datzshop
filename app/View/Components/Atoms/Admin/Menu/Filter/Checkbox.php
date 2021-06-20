@@ -6,14 +6,16 @@ use Illuminate\View\Component;
 
 class Checkbox extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $icon;
+    public $name;
+
+    public function __construct(
+        $icon,
+        $name
+        )
     {
-        //
+        $this->icon = $icon;
+        $this->name = $name;
     }
 
     /**

@@ -3,13 +3,11 @@
       <div :class="{'md:w-44': menuOpen, 'md:flex md:w-10': !menuOpen}" class="flex flex-col w-full text-gray-70 text-gray-200 bg-gray-800 flex-shrink-0">
         <div :class="{'justify-between': menuOpen, 'justify-center': !menuOpen}" class="flex-shrink-0 px-2 py-4 flex flex-row items-center">
           <a href="#" :class="{'block': menuOpen, 'md:hidden': !menuOpen}" class="text-lg font-bold tracking-widest uppercase rounded-lg text-green-600 focus:outline-none focus:shadow-outline">{{ env('APP_NAME') }}</a>
-          <button class="rounded-lg text-xs focus:outline-none focus:shadow-outline" wire:click="toggleMenu">
-            <i wire:ignore class="fi-xnsuxx-three-bars-solid"></i>
-          </button>
+          <x-icon name="gmdi-menu" wire:click="toggleMenu" class="w-5 h-5 cursor-pointer"/>
         </div>
         <nav :class="{'block': menuOpen, 'hidden md:block': !menuOpen}" class="flex-grow pb-4 md:pb-0 md:overflow-y-auto overflow-hidden">
-            <x-atoms.admin.menu.link name="Dashboard" :route="route('admin.dashboard')" icon="xnluxl-home"/>
-            <x-atoms.admin.menu.link name="Products" :route="route('admin.products.index')" icon="xnluxl-gift"/>
+            <x-atoms.admin.menu.link name="Dashboard" :route="route('admin.dashboard')" icon="gmdi-dashboard-r"/>
+            <x-atoms.admin.menu.link name="Products" :route="route('admin.products.index')" icon="gmdi-category-r"/>
           {{-- <div @click.away="menuOpen = false" class="relative" x-data="{ menuOpen: false }">
             <button @click="menuOpen = !menuOpen" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left rounded-lg bg-transparent focus:text-white hover:text-white focus:bg-gray-600 hover:bg-gray-600 md:block focus:outline-none focus:shadow-outline">
               <span>Dropdown</span>

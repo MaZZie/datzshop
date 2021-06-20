@@ -5,10 +5,10 @@
           <a href="#" class="text-lg font-semibold tracking-widest uppercase rounded-lg text-gray-900 focus:outline-none focus:shadow-outline">Filters</a>
         </div>
         <nav class="flex-grow md:block px-3 pb-4 md:pb-0 md:overflow-y-auto overflow-hidden">
-            <x-atoms.admin.menu.filter.checkbox name="Dashboard" :route="route('admin.dashboard')" icon="xnluxl-home"/>
-            <x-atoms.admin.menu.filter.checkbox name="Dashboard" :route="route('admin.dashboard')" icon="xnluxl-home"/>
-            <x-atoms.admin.menu.filter.checkbox name="Dashboard" :route="route('admin.dashboard')" icon="xnluxl-home"/>
-            <x-atoms.admin.menu.filter.checkbox name="Dashboard" :route="route('admin.dashboard')" icon="xnluxl-home"/>
+            <x-atoms.admin.menu.filter.checkbox name="Op voorraad" :route="route('admin.dashboard')" icon="gmdi-filter-list-alt"/>
+            <x-atoms.admin.menu.filter.checkbox name="Geen voorraad" :route="route('admin.dashboard')" icon="gmdi-filter-list-alt"/>
+            <x-atoms.admin.menu.filter.checkbox name="Heeft open order" :route="route('admin.dashboard')" icon="gmdi-filter-list-alt"/>
+            <x-atoms.admin.menu.filter.checkbox name="Geel" :route="route('admin.dashboard')" icon="gmdi-filter-list-alt"/>
           {{-- <div @click.away="open = false" class="relative" x-data="{ open: false }">
             <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left rounded-lg bg-transparent focus:text-white hover:text-white focus:bg-gray-600 hover:bg-gray-600 md:block focus:outline-none focus:shadow-outline">
               <span>Dropdown</span>
