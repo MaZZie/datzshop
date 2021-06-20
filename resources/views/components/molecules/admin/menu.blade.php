@@ -1,7 +1,7 @@
 <div>
     <div class="md:flex flex-col md:flex-row md:min-h-screen w-full" x-data="{ menuOpen: @entangle('menuOpen') }">
       <div :class="{'md:w-44': menuOpen, 'md:flex md:w-10': !menuOpen}" class="flex flex-col w-full text-gray-70 text-gray-200 bg-gray-800 flex-shrink-0">
-        <div :class="{'justify-between': menuOpen, 'justify-center': !menuOpen}" class="flex-shrink-0 px-2 py-4 flex flex-row items-center">
+        <div :class="{'justify-between': menuOpen, 'justify-between md:justify-center': !menuOpen}" class="flex-shrink-0 px-2 py-4 flex flex-row items-center h-16">
           <a href="#" :class="{'block': menuOpen, 'md:hidden': !menuOpen}" class="text-lg font-bold tracking-widest uppercase rounded-lg text-green-600 focus:outline-none focus:shadow-outline">{{ env('APP_NAME') }}</a>
           <x-icon name="gmdi-menu" wire:click="toggleMenu" class="w-5 h-5 cursor-pointer"/>
         </div>

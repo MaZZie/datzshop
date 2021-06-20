@@ -1,6 +1,6 @@
 <div>
 	<livewire:components.modal-component />
-	<div class="flex">
+	<div class="md:flex">
 		<x-molecules.admin.menu/>
 		<x-molecules.admin.filter/>
 		<main class="w-full">
