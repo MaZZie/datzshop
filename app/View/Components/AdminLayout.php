@@ -11,6 +11,15 @@ class AdminLayout extends Component
      *
      * @return \Illuminate\View\View
      */
+
+    public $modal;
+    public $menu;
+    public function __construct($modal = false, $menu = true)
+    {
+        $this->modal = $modal;
+        $this->menu = $menu;
+    }
+     
     public function render()
     {
         return view('layouts.admin');

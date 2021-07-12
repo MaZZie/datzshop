@@ -10,6 +10,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;400;700&display=swap" rel="stylesheet">
+        <script defer src="https://friconix.com/cdn/friconix.js"> </script>
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
@@ -18,20 +19,20 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="font-sans antialiased">
-        
-        <x-jet-banner />
-
-        <div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
-            @livewire('sidebar-menu')
-            <!-- Page Content -->
-            <main>
+    <body class="font-sans antialiased bg-gray-200">
+        @stack('modals')
+        @if($modal)
+            @livewire('components.modal-component')
+        @endif
+        <div class="md:flex">
+            @if($menu)
+                @livewire('admin.menu')
+            @endif
+            {{-- <x-molecules.admin.filter/> --}}
+            <main class="w-full">
                 {{ $slot }}
             </main>
         </div>
-
-        @stack('modals')
-
         @livewireScripts
     </body>
 </html>
