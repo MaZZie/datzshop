@@ -11,6 +11,7 @@ class Input extends Component
     public $label;
     public $singleCol;
     public $name;
+    public $show;
 
     /**
      * Create a new component instance.
@@ -22,7 +23,8 @@ class Input extends Component
         $placeholder,
         $label,
         $name,
-        $singleCol = false
+        $singleCol = false,
+        $show = "true"
     )
     {
         $this->type = $type;
@@ -30,6 +32,7 @@ class Input extends Component
         $this->label = $label;
         $this->name = $name;
         $this->singleCol = $singleCol;
+        $this->show = $show;
     }
 
     /**

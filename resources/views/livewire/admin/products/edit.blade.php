@@ -7,12 +7,23 @@
   <x-atoms.admin.form.input type="text" label="slug" placeholder="Voer een slug in" singleCol="true" name="product.slug" />
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
-        <x-atoms.admin.form.input type="text" label="Voorraad" placeholder="Voer de voorraad in" name="product.stock" />
+        <x-atoms.admin.form.toggle label="{{ __('Stockable') }}" name="product.has_stock" singleCol=""/>
+        <x-atoms.admin.form.input  type="text" label="Voorraad" placeholder="Voer de voorraad in" name="product.stock" :show="$showStock"/>
         <x-atoms.admin.form.input type="number" label="prijs" placeholder="Voer de prijs in" name="product.price" />
     </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7">
+      <div class="grid grid-cols-1">
+        <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Product Type</label>
+        <select wire:model="product.product_type_id" class="py-2 px-3 rounded-lg border-2 border-gray-200 mt-1 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent">
+            <option value="1">Variable</option>
+            <option value="2">Single</option>
+        </select>
+      </div>
+        <x-atoms.admin.form.input  type="text" label="{{ __('SKU') }}" placeholder="Voer de voorraad in" name="product.sku" />
 
+    </div>
 
-    <x-atoms.admin.form.input type="text" label="omschrijving" placeholder="Voer een omschrijving in" singleCol="true" name="product.description" />
+    <x-atoms.admin.form.input  type="text" label="omschrijving" placeholder="Voer een omschrijving in" singleCol="true" name="product.description" />
 
     {{-- <div class="grid grid-cols-1 mt-5 mx-7">
       <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1">Upload Photo</label>
@@ -27,11 +38,11 @@
         </div>
     </div> --}}
     <div class='flex items-center justify-center  md:gap-8 gap-4 pt-5 pb-5'>
-      <button wire:click="$emitUp('closeModal')" class='w-auto bg-gray-500 hover:bg-gray-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Cancel</button>
-      @if($product)
-      <button wire:click="store" class='w-auto bg-green-600 hover:bg-green-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Opslaan</button>
+      <x-atoms.admin.button clickAction="$emitUp('closeModal')" btnType="cancel">{{ __('Cancel') }}</x-atoms.admin.button>
+      @if($product->id)
+      <x-atoms.admin.button clickAction="store" btnType="succes">{{ __('Save') }}</x-atoms.admin.button>
       @else
-      <button wire:click="store" class='w-auto bg-green-600 hover:bg-green-700 rounded-lg shadow-xl font-medium text-white px-4 py-2'>Aanmaken</button>
+      <x-atoms.admin.button clickAction="store" btnType="succes">{{ __('Create') }}</x-atoms.admin.button>
       @endif
     </div>
 

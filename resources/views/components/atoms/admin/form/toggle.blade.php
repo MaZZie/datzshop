@@ -4,7 +4,7 @@
     <input class="py-2 px-3 rounded-lg border-2 border-gray-200 mt-1 focus:outline-none focus:ring-green-600 focus:border-transparent form-checkbox flex items-center h-4 w-4 text-green-600 bg-gray-200 focus:ring-0 shadow-none focus:shadow-none"
       type="checkbox" 
       name="{{ $name }}"
-      wire:model.prevent="{{ $name }}" 
+      wire:model.lazy="{{ $name }}" 
       />
       @error($name) <p class="text-red-500 text-xs italic">{{ $message }}</p> @enderror
   </div>

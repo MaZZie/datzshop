@@ -1,17 +1,6 @@
-{{-- <x-admin-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
-        </div>
-    </div>
-</x-admin-layout> --}}
-
-<x-organisms.admin.dashboard />
+<x-admin-layout :modal="false">
+	<x-jet-banner />
+	<div class="w-full pt-4">
+		@livewire('admin.dashboard')
+	</div>
+</x-admin-layout>

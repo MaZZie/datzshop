@@ -151,7 +151,8 @@ return [
         'description' => "omschrijving",
         'product.name' => 'productnaam',
         'stock' => 'voorraad',
-        'price' => 'prijs'
+        'price' => 'prijs',
+        'product.slug' => 'slug',
     ],
 
 ];

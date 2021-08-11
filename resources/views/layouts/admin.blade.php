@@ -13,6 +13,7 @@
         <script defer src="https://friconix.com/cdn/friconix.js"> </script>
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        
 
         @livewireStyles
 
@@ -33,6 +34,11 @@
                 {{ $slot }}
             </main>
         </div>
+        {{-- TODO: Move to app.js --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
+
         @livewireScripts
+        
+        @stack('scripts')
     </body>
 </html>
